@@ -99,7 +99,7 @@ export default function Home() {
                 <strong>Easy Text Input</strong>
               </Typography>
               <Typography variant="h6" gutterBottom sx={{ fontFamily: "monospace", fontSize: { xs: "1rem", md: "1.25rem" } }}>
-                Simply input your text and let our software do the rest. Creating flashcards can't be easier.
+                Simply input your text and let our software do the rest. Creating flashcards cannot be easier.
               </Typography>
             </Box>
           </Grid>
