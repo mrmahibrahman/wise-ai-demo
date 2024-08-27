@@ -77,8 +77,8 @@ export default function Home() {
           variant="contained"
           color="primary"
           sx={{ mt: 2, backgroundColor: "#61dafb", color: "#1e1e1e" }}
-          //onClick={handleGetStarted}
-          href="/sign-up"
+          onClick={handleGetStarted}
+          //href="/sign-up"
         >
           Join Waitlist!
         </Button>
@@ -194,6 +194,7 @@ export default function Home() {
                 variant="contained"
                 color="primary"
                 sx={{ mt: 2, backgroundColor: "#61dafb", color: "#1e1e1e" }}
+                onClick={handleSubmit}
               >
                 Choose Basic
               </Button>
@@ -224,7 +225,7 @@ export default function Home() {
                 variant="contained"
                 color="primary"
                 sx={{ mt: 2, backgroundColor: "#61dafb", color: "#1e1e1e" }}
-                //onClick={handleSubmit}
+                onClick={handleSubmit}
               >
                 Choose Pro
               </Button>
