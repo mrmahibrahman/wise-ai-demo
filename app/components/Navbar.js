@@ -24,10 +24,11 @@ export default function Navbar() {
     >
       <Toolbar>
         <Typography variant="h6" style={{ flexGrow: 1 }}>
-          Flashcards
+          Wise AI
         </Typography>
 
-        <Button color="inherit" onClick={handleMenuClick}>
+        <Button color="inherit" //nClick={handleMenuClick}
+        >
           Menu
         </Button>
 
@@ -65,7 +66,7 @@ export default function Navbar() {
                 },
                 }}
             >
-                Generate Flashcards
+                Chatbot
             </MenuItem>
             <MenuItem
                 onClick={handleMenuClose}
@@ -78,7 +79,7 @@ export default function Navbar() {
                 },
                 }}
             >
-                View Saved Flashcards
+                View Previous Chat History
             </MenuItem>
             </Menu>
 
