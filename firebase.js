@@ -6,12 +6,12 @@ import {getAuth} from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: "advice-19486.firebaseapp.com",
-  projectId: "advice-19486",
-  storageBucket: "advice-19486.appspot.com",
-  messagingSenderId: "748516707397",
-  appId: "1:748516707397:web:f9b420bfd778e2bee5272c",
-  measurementId: "G-XGZZ2FX73W"
+  authDomain: "wise-51f1e.firebaseapp.com",
+  projectId: "wise-51f1e",
+  storageBucket: "wise-51f1e.appspot.com",
+  messagingSenderId: "556592843108",
+  appId: "1:556592843108:web:ce2f9b67d50097c674d271",
+  measurementId: "G-DSJ8HZG9PF"
 };
 
 // Initialize Firebase
@@ -29,3 +29,4 @@ if (typeof window !== 'undefined') {
 
 export { firestore, auth, analytics, db };
 export default app;
+
