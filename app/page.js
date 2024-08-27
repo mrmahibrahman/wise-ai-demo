@@ -45,7 +45,7 @@ export default function Home() {
   return (
     <Container maxWidth="100%" sx={{ backgroundColor: "#1e1e1e", minHeight: "100vh", color: "#c5c6c7", padding: "0", display: "flex", flexDirection: "column" }}>
       <Head>
-        <title>Flashcards</title>
+        <title>Wise AI</title>
         <meta name="description" content="Create flashcards from your text" />
       </Head>
 
@@ -59,18 +59,19 @@ export default function Home() {
         }}
       >
         <Typography variant="h2" gutterBottom sx={{ fontFamily: "monospace", color: "#61dafb", fontSize: { xs: "2rem", md: "3rem" } }}>
-          Welcome to Flashcards
+          Welcome to Wise AI
         </Typography>
         <Typography variant="h5" gutterBottom sx={{ fontFamily: "monospace", fontSize: { xs: "1.25rem", md: "1.5rem" } }}>
-          The easiest way to make flashcards from your text
+          Get effective advice on any problem you may have!
         </Typography>
         <Button
           variant="contained"
           color="primary"
           sx={{ mt: 2, backgroundColor: "#61dafb", color: "#1e1e1e" }}
-          onClick={handleGetStarted}
+          // onClick={handleGetStarted}
+          href="/sign-up"
         >
-          Get Started
+          Join Waitlist!
         </Button>
       </Box>
 
@@ -96,10 +97,10 @@ export default function Home() {
               }}
             >
               <Typography variant="h5" gutterBottom sx={{ fontFamily: "monospace", fontSize: { xs: "1.25rem", md: "1.5rem" } }}>
-                <strong>Easy Text Input</strong>
+                <strong>Easy to use!</strong>
               </Typography>
               <Typography variant="h6" gutterBottom sx={{ fontFamily: "monospace", fontSize: { xs: "1rem", md: "1.25rem" } }}>
-                Simply input your text and let our software do the rest. Creating flashcards cannot be easier.
+                Simply input your text and let our software do the rest. Getting advice cannot be easier.
               </Typography>
             </Box>
           </Grid>
@@ -120,10 +121,10 @@ export default function Home() {
               }}
             >
               <Typography variant="h5" gutterBottom sx={{ fontFamily: "monospace", fontSize: { xs: "1.25rem", md: "1.5rem" } }}>
-                <strong>Smart Flashcards</strong>
+                <strong>Smart Advice!</strong>
               </Typography>
               <Typography variant="h6" gutterBottom sx={{ fontFamily: "monospace", fontSize: { xs: "1rem", md: "1.25rem" } }}>
-                Our AI intelligently breaks down your text into concise flashcards, perfect for studying.
+                Our AI intelligently breaks down your problem and gives back concise responses so you can solve your problem!
               </Typography>
             </Box>
           </Grid>
@@ -147,7 +148,7 @@ export default function Home() {
                 <strong>Accessible Anywhere</strong>
               </Typography>
               <Typography variant="h6" gutterBottom sx={{ fontFamily: "monospace", fontSize: { xs: "1rem", md: "1.25rem" } }}>
-                Access your flashcards from any device, at any time. Study on the go with ease.  
+                Access Wise AI from any device, at any time.   
               </Typography>
             </Box>
           </Grid>
@@ -178,7 +179,7 @@ export default function Home() {
                 $5 / month
               </Typography>
               <Typography sx={{ fontFamily: "monospace", fontSize: { xs: "0.875rem", md: "1rem" } }}>
-                Access to basic flashcard features and limited storage.
+                Do not use/BROKEN
               </Typography>
               <Button
                 variant="contained"
@@ -208,13 +209,13 @@ export default function Home() {
                 $10 / month
               </Typography>
               <Typography sx={{ fontFamily: "monospace", fontSize: { xs: "0.875rem", md: "1rem" } }}>
-                Access to unlimited flashcards and storage, with priority support.
+                Access to unlimited input tokens. DO NOT USE/BROKEN
               </Typography>
               <Button
                 variant="contained"
                 color="primary"
                 sx={{ mt: 2, backgroundColor: "#61dafb", color: "#1e1e1e" }}
-                onClick={handleSubmit}
+                //onClick={handleSubmit}
               >
                 Choose Pro
               </Button>

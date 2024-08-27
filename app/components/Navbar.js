@@ -24,17 +24,19 @@ export default function Navbar() {
     >
       <Toolbar>
         <Typography variant="h6" style={{ flexGrow: 1 }}>
-          Flashcards
+          Wise AI
         </Typography>
 
-        <Button color="inherit" onClick={handleMenuClick}>
+        <Button color="inherit" 
+          //onClick={handleMenuClick}
+        >
           Menu
         </Button>
 
             <Menu
             anchorEl={anchorEl}
             open={Boolean(anchorEl)}
-            onClose={handleMenuClose}
+            //onClose={handleMenuClose}
             sx={{
                 '& .MuiPaper-root': {
                 backgroundColor: '#282c34', // Menu background color
@@ -42,7 +44,7 @@ export default function Navbar() {
             }}
             >
             <MenuItem
-                onClick={handleMenuClose}
+                // onClick={handleMenuClose}
                 component="a"
                 href="/"
                 sx={{
@@ -55,7 +57,7 @@ export default function Navbar() {
                 Home
             </MenuItem>
             <MenuItem
-                onClick={handleMenuClose}
+                // onClick={handleMenuClose}
                 component="a"
                 href="/generate"
                 sx={{
@@ -68,7 +70,7 @@ export default function Navbar() {
                 Generate Flashcards
             </MenuItem>
             <MenuItem
-                onClick={handleMenuClose}
+                // onClick={handleMenuClose}
                 component="a"
                 href="/flashcards"
                 sx={{
