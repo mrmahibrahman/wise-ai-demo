@@ -44,23 +44,20 @@ export default function Home() {
 
   return (
     <Container maxWidth="100%" sx={{ backgroundColor: "#1e1e1e", minHeight: "100vh", color: "#c5c6c7", padding: "0", display: "flex", flexDirection: "column" }}>
-      <Head>
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3J43ZMDJ1"></script>
-        <script dangerouslySetInnerHTML={{ __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+        <Head>
+          {/* Google Analytics
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3J43ZMDJ1"></script>
+          <script dangerouslySetInnerHTML={{ __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-Z3J43ZMDJ1');
+          `}} /> */}
+          <title>Flashcards</title>
+          <meta name="description" content="Create flashcards from your text" />
+        </Head>
 
-          gtag('config', 'G-Z3J43ZMDJ1');
-        `}} />
-        <title>Flashcards</title>
-        <meta name="description" content="Create flashcards from your text" />
-        
-      </Head>
-
-      
-
+  
       <Navbar />
 
       <Box
