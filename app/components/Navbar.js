@@ -27,7 +27,7 @@ export default function Navbar() {
           Wise AI
         </Typography>
 
-        <Button color="inherit" Click={handleMenuClick}
+        <Button color="inherit" //nClick={handleMenuClick}
         >
           Menu
         </Button>
