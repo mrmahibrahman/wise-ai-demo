@@ -1,4 +1,3 @@
-// components/Navbar.js
 import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Button, Menu, MenuItem } from '@mui/material';
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
@@ -16,72 +15,75 @@ export default function Navbar() {
 
   return (
     <AppBar 
-        position="static"
-        sx={{ 
-            backgroundColor: "#61dafb", // Change the background color here
-            color: "#1e1e1e" // Change the text color here
-          }}
+      position="fixed"
+      sx={{ 
+        backgroundColor: "#2c2c2c", // Purple Baseline
+        color: "#f95d9b", // Pink Highlight
+        top: 0,
+        zIndex: 10,
+        height: '64px',
+      }}
     >
       <Toolbar>
         <Typography variant="h6" style={{ flexGrow: 1 }}>
-          Wise AI
+          InstaWise AI
         </Typography>
 
-        <Button color="inherit" //nClick={handleMenuClick}
-        >
+        <Button color="inherit" onClick={handleMenuClick}>
           Menu
         </Button>
 
-            <Menu
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={handleMenuClose}
+        <Menu
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={handleMenuClose}
+          sx={{
+            '& .MuiPaper-root': {
+              backgroundColor: '#1e1e1e', // Dark Gray for menu background
+              color: '#f95d9b', // Pink Highlight for menu text
+            }
+          }}
+        >
+          <MenuItem
+            onClick={handleMenuClose}
+            component="a"
+            href="/"
             sx={{
-                '& .MuiPaper-root': {
-                backgroundColor: '#282c34', // Menu background color
-                }
+              color: '#f95d9b',
+              '&:hover': {
+                backgroundColor: '#39a0ca', // Bluewater Lowlight on hover
+              },
             }}
-            >
-            <MenuItem
-                onClick={handleMenuClose}
-                component="a"
-                href="/"
-                sx={{
-                color: '#c5c6c7', // Text color
-                '&:hover': {
-                    backgroundColor: '#61dafb', // Hover background color
-                },
-                }}
-            >
-                Home
-            </MenuItem>
-            <MenuItem
-                onClick={handleMenuClose}
-                component="a"
-                href="/generate"
-                sx={{
-                color: '#c5c6c7',
-                '&:hover': {
-                    backgroundColor: '#61dafb',
-                },
-                }}
-            >
-                Chatbot
-            </MenuItem>
-            <MenuItem
-                onClick={handleMenuClose}
-                component="a"
-                href="/flashcards"
-                sx={{
-                color: '#c5c6c7',
-                '&:hover': {
-                    backgroundColor: '#61dafb',
-                },
-                }}
-            >
-                View Previous Chat History
-            </MenuItem>
-            </Menu>
+          >
+            Home
+          </MenuItem>
+          <MenuItem
+            onClick={handleMenuClose}
+            component="a"
+            href="/generate"
+            sx={{
+              color: '#f95d9b',
+              '&:hover': {
+                backgroundColor: '#39a0ca',
+              },
+            }}
+          >
+            Advice Bot
+          </MenuItem>
+          <MenuItem
+            onClick={handleMenuClose}
+            component="a"
+            href="/flashcards"
+            sx={{
+              color: '#f95d9b',
+              '&:hover': {
+                backgroundColor: '#39a0ca',
+              },
+            }}
+          >
+            View Chat History
+          </MenuItem>
+        </Menu>
 
         <SignedOut>
           <Button color="inherit" href="/sign-in">
