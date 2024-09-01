@@ -46,13 +46,13 @@ export default function Home() {
     <Container 
       maxWidth="100%" 
       sx={{ 
-        backgroundColor:  "#2c2c2c",//"#161748", // Purple Baseline
+        background: "linear-gradient(135deg, pink 0%, white 50%, pink 100%)", // Gradient from pink to white to pink
         minHeight: "100vh", 
-        color: "#f95d9b", // Pink Highlight
+        color: "#4A403A", // Darker brownish color for text
         padding: "0", 
         display: "flex", 
         flexDirection: "column",
-        mt: 8 // Add margin top to push content below the Navbar
+        mt: 8, // Add margin top to push content below the Navbar
       }}
     >
       <Head>
@@ -69,16 +69,20 @@ export default function Home() {
           px: { xs: 2, md: 0 },
         }}
       >
-        <Typography variant="h2" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", color: "#f95d9b", fontSize: { xs: "2rem", md: "3rem" } }}>
+        <Typography variant="h2" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", color: "#FFDAC1", fontSize: { xs: "2rem", md: "3rem" } }}>
           Welcome to InstaWise AI
         </Typography>
-        <Typography variant="h5" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", color: "#f95d9b", fontSize: { xs: "1.25rem", md: "1.5rem" } }}>
+        <Typography variant="h5" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", color: "#FFDAC1", fontSize: { xs: "1.25rem", md: "1.5rem" } }}>
           The easiest way to get advice for any problem you may have!
         </Typography>
         <Button
           variant="contained"
-          color="primary"
-          sx={{ mt: 2, backgroundColor: "#f95d9b", color: "#161748", '&:hover': { backgroundColor: "#e34a6f" } }} // Slightly darker pink for hover
+          sx={{ 
+            mt: 2, 
+            backgroundColor: "#FFDAB9", // Peach color for the button
+            color: "#4A403A", 
+            '&:hover': { backgroundColor: "#FFB07C" } // Darker peach for hover
+          }} 
           onClick={handleGetStarted}
         >
           Get Started!
@@ -86,7 +90,7 @@ export default function Home() {
       </Box>
 
       <Box sx={{ my: { xs: 4, md: 6 }, textAlign: 'center', px: { xs: 2, md: 0 } }}>
-        <Typography variant="h4" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", color: "#f95d9b", fontSize: { xs: "1.75rem", md: "2.5rem" } }}>
+        <Typography variant="h4" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", color: "#FFDAC1", fontSize: { xs: "1.75rem", md: "2.5rem" } }}>
           Features
         </Typography>
         <Grid container spacing={4}>
@@ -95,16 +99,16 @@ export default function Home() {
               sx={{
                 p: 3,
                 border: '1px solid',
-                borderColor: "#f95d9b", // Bluewater Lowlight
+                borderColor: "#FFDAB9", // Peach lowlight
                 borderRadius: 2,
-                backgroundColor: "#1e1e1e", // Dark Gray
-                color: "#f95d9b", // Pink Highlight
+                backgroundColor: "#FFE4C4", // Light peach
+                color: "#4A403A", 
                 textAlign: 'left',
-                height: '100%', // Ensures all boxes are the same height
+                height: '100%', 
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between', // Ensures content is spaced evenly
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)' // Add shadow
+                justifyContent: 'space-between',
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)' 
               }}
             >
               <Typography variant="h5" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "1.25rem", md: "1.5rem" }, fontWeight: 700 }}>
@@ -120,16 +124,16 @@ export default function Home() {
               sx={{
                 p: 3,
                 border: '1px solid',
-                borderColor: "#f95d9b", // Bluewater Lowlight
+                borderColor: "#FFDAB9", // Peach lowlight
                 borderRadius: 2,
-                backgroundColor: "#1e1e1e", // Dark Gray
-                color: "#f95d9b", // Pink Highlight
+                backgroundColor: "#FFE4C4", // Light peach
+                color: "#4A403A", 
                 textAlign: 'left',
-                height: '100%', // Ensures all boxes are the same height
+                height: '100%', 
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between', // Ensures content is spaced evenly
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)' // Add shadow
+                justifyContent: 'space-between',
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)' 
               }}
             >
               <Typography variant="h5" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "1.25rem", md: "1.5rem" }, fontWeight: 700 }}>
@@ -145,16 +149,16 @@ export default function Home() {
               sx={{
                 p: 3,
                 border: '1px solid',
-                borderColor: '#f95d9b', // Bluewater Lowlight
+                borderColor: '#FFDAB9', // Peach lowlight
                 borderRadius: 2,
-                backgroundColor: "#1e1e1e", // Dark Gray
-                color: "#f95d9b", // Pink Highlight
+                backgroundColor: "#FFE4C4", // Light peach
+                color: "#4A403A", 
                 textAlign: 'left',
-                height: '100%', // Ensures all boxes are the same height
+                height: '100%', 
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between', // Ensures content is spaced evenly
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)' // Add shadow
+                justifyContent: 'space-between',
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)' 
               }}
             >
               <Typography variant="h5" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "1.25rem", md: "1.5rem" }, fontWeight: 700 }}>
@@ -169,7 +173,7 @@ export default function Home() {
       </Box>
 
       <Box sx={{ my: { xs: 4, md: 6 }, textAlign: 'center', px: { xs: 2, md: 0 } }}>
-        <Typography variant="h4" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", color: "#f95d9b", fontSize: { xs: "1.75rem", md: "2.5rem" } }}>
+        <Typography variant="h4" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", color: "#FFDAC1", fontSize: { xs: "1.75rem", md: "2.5rem" } }}>
           Pricing
         </Typography>
         <Grid container spacing={4}>
@@ -178,12 +182,12 @@ export default function Home() {
               sx={{
                 p: 3,
                 border: '1px solid',
-                borderColor: '#f95d9b', // Bluewater Lowlight
+                borderColor: '#FFDAB9', // Peach lowlight
                 borderRadius: 2,
-                backgroundColor: "#1e1e1e", // Dark Gray
-                color: "#f95d9b", // Pink Highlight
+                backgroundColor: "#FFE4C4", // Light peach
+                color: "#4A403A", 
                 textAlign: 'left',
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)' // Add shadow
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)' 
               }}
             >
               <Typography variant="h5" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "1.25rem", md: "1.5rem" }, fontWeight: 700 }}>
@@ -192,16 +196,6 @@ export default function Home() {
               <Typography variant="h6" gutterBottom sx={{ p: 2, fontFamily: "Roboto, sans-serif", fontSize: { xs: "1rem", md: "1.25rem" }, fontWeight: 400 }}>
                 Free
               </Typography>
-              <Typography sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "0.875rem", md: "1rem" }, fontWeight: 400 }}>
-                Advice token limits each day
-              </Typography>
-              <Button
-                variant="contained"
-                color="primary"
-                sx={{ mt: 2, backgroundColor: "#f95d9b", color: "#161748", '&:hover': { backgroundColor: "#e34a6f" } }} // Slightly darker pink for hover
-              >
-                Choose Basic
-              </Button>
             </Box>
           </Grid>
           <Grid item xs={12} md={6}>
@@ -209,34 +203,25 @@ export default function Home() {
               sx={{
                 p: 3,
                 border: '1px solid',
-                borderColor: "#f95d9b", // Bluewater Lowlight
+                borderColor: '#FFDAB9', // Peach lowlight
                 borderRadius: 2,
-                backgroundColor: "#1e1e1e", // Dark Gray
-                color: "#f95d9b", // Pink Highlight
+                backgroundColor: "#FFE4C4", // Light peach
+                color: "#4A403A", 
                 textAlign: 'left',
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)' // Add shadow
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)' 
               }}
             >
               <Typography variant="h5" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "1.25rem", md: "1.5rem" }, fontWeight: 700 }}>
                 Premium
               </Typography>
               <Typography variant="h6" gutterBottom sx={{ p: 2, fontFamily: "Roboto, sans-serif", fontSize: { xs: "1rem", md: "1.25rem" }, fontWeight: 400 }}>
-                $ 5.00
+                $9.99 per month
               </Typography>
-              <Typography sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "0.875rem", md: "1rem" }, fontWeight: 400 }}>
-                Unlimited advice tokens
-              </Typography>
-              <Button
-                variant="contained"
-                color="primary"
-                sx={{ mt: 2, backgroundColor: "#f95d9b", color: "#161748", '&:hover': { backgroundColor: "#e34a6f" } }} // Slightly darker pink for hover
-              >
-                Choose Premium
-              </Button>
             </Box>
           </Grid>
         </Grid>
       </Box>
+
     </Container>
   );
 }
