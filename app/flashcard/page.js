@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
@@ -43,10 +43,10 @@ export default function Flashcard() {
     }
 
     return (
-        <Container maxWidth="false" sx={{backgroundColor: "#1e1e1e", minHeight: "100vh", color: "#c5c6c7", display: "flex", flexDirection: "column", padding: "0" }}>
+        <Container maxWidth="false" sx={{backgroundColor: "#fff5f7", minHeight: "100vh", color: "#000", display: "flex", flexDirection: "column", padding: "0" }}>
             <Navbar />
             <Box sx={{ mt: 4, mb: 6, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Typography variant="h4" sx={{ fontFamily: "monospace", color: "#61dafb" }}>
+                <Typography variant="h4" sx={{ fontFamily: "monospace", color: "#ff6699" }}>
                     Flashcard Collection
                 </Typography>
             </Box>
@@ -54,7 +54,7 @@ export default function Flashcard() {
             <Grid container spacing={3} sx={{ mt: 4 }}>
                 {flashcards.map((flashcard, index) => (
                     <Grid item xs={12} sm={6} md={4} key={index}>
-                        <Card sx={{ backgroundColor: "#282c34", color: "#c5c6c7" }}>
+                        <Card sx={{ backgroundColor: "#ffcccb", color: "#000" }}>
                             <CardActionArea onClick={() => handleCardClick(index)}>
                                 <CardContent>
                                     <Box

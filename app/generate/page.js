@@ -8,7 +8,7 @@ import { useState, useRef, useEffect } from "react";
 import Navbar from "../components/Navbar";
 
 export default function Home() {
-  const { user } = useUser(); // Clerk user
+  const { user } = useUser();
   const router = useRouter();
   const messagesEndRef = useRef(null);
 
@@ -21,8 +21,8 @@ export default function Home() {
 
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [openDialog, setOpenDialog] = useState(false); // State to control dialog
-  const [chatName, setChatName] = useState(''); // State to store chat name
+  const [openDialog, setOpenDialog] = useState(false);
+  const [chatName, setChatName] = useState('');
 
   useEffect(() => {
     if (user) {
@@ -121,7 +121,7 @@ export default function Home() {
 
   const handleSaveChat = () => {
     if (user) {
-      setOpenDialog(true); // Open the dialog to ask for chat name
+      setOpenDialog(true);
     } else {
       alert("User not authenticated. Unable to save chat history.");
     }
@@ -140,7 +140,7 @@ export default function Home() {
       const docRef = doc(db, "chats", user.id);
       await setDoc(docRef, { name: chatName, messages: messages });
       alert("Chat history saved successfully!");
-      setOpenDialog(false); // Close the dialog
+      setOpenDialog(false);
     } catch (error) {
       console.error("Error saving chat history:", error);
       alert("Failed to save chat history.");
@@ -148,7 +148,7 @@ export default function Home() {
   };
 
   return (
-    <Container maxWidth="xl" sx={{ height: '100vh', bgcolor: "#222222", display: 'flex', flexDirection: 'column' }}>
+    <Container maxWidth="xl" sx={{ height: '100vh', bgcolor: "#fff5f7", display: 'flex', flexDirection: 'column' }}>
       <Navbar />
       <Box
         flex={1}
@@ -174,7 +174,7 @@ export default function Home() {
             <Box
               key={index}
               mb={1}
-              p={2} // Increased padding for message bubbles
+              p={2}
               borderRadius={2}
               sx={{
                 display: 'flex',
@@ -183,14 +183,14 @@ export default function Home() {
             >
               <Box
                 sx={{
-                  bgcolor: msg.role === "user" ? "#e57373" : "#8B0000", // Light red for user, dark red for assistant
-                  p: 2, // Increased padding inside bubbles
+                  bgcolor: msg.role === "user" ? "#ffcccb" : "#ff99aa",
+                  p: 2,
                   borderRadius: 2,
-                  color: "white",
+                  color: "#fff",
                   maxWidth: "80%",
-                  overflowWrap: "break-word", // Handle long words
-                  textOverflow: "ellipsis", // Add ellipsis for overflow
-                  whiteSpace: "pre-wrap", // Preserve white spaces and line breaks
+                  overflowWrap: "break-word",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "pre-wrap",
                 }}
               >
                 {msg.content}
@@ -207,9 +207,9 @@ export default function Home() {
           bottom: 0,
           left: 0,
           right: 0,
-          bgcolor: '#222222',
+          bgcolor: '#fff5f7',
           p: 2,
-          borderTop: '1px solid #333',
+          borderTop: '1px solid #ff99aa',
           zIndex: 10,
         }}
       >
@@ -224,20 +224,20 @@ export default function Home() {
             onChange={(e) => setMessage(e.target.value)}
             onKeyPress={handleKeyPress}
             sx={{
-              bgcolor: "#333",
-              color: "white",
+              bgcolor: "#ffe6e9",
+              color: "#000",
               "& .MuiOutlinedInput-root": {
                 "& fieldset": {
-                  borderColor: "#444",
+                  borderColor: "#ff99aa",
                 },
                 "&:hover fieldset": {
-                  borderColor: "#61dafb",
+                  borderColor: "#ff6699",
                 },
                 "&.Mui-focused fieldset": {
-                  borderColor: "#61dafb",
+                  borderColor: "#ff6699",
                 },
                 "& input, & textarea": {
-                  color: "white",
+                  color: "#000",
                 },
               },
             }}
@@ -246,9 +246,9 @@ export default function Home() {
           <Button
             variant="contained"
             sx={{
-              bgcolor: "#8B0000", // Primary button color
+              bgcolor: "#ff6699",
               "&:hover": {
-                bgcolor: "#6f0000",
+                bgcolor: "#e05582",
               },
             }}
             onClick={sendMessage}
@@ -259,7 +259,38 @@ export default function Home() {
         </Stack>
       </Box>
 
- 
+      {/* Dialog for saving chat */}
+      <Dialog open={openDialog} onClose={handleDialogClose}>
+        <DialogTitle>Save Chat</DialogTitle>
+        <DialogContent>
+          <TextField
+            autoFocus
+            margin="dense"
+            label="Chat Name"
+            fullWidth
+            variant="outlined"
+            value={chatName}
+            onChange={(e) => setChatName(e.target.value)}
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#ff99aa",
+                },
+                "&:hover fieldset": {
+                  borderColor: "#ff6699",
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "#ff6699",
+                },
+              },
+            }}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleDialogClose} sx={{ color: "#ff6699" }}>Cancel</Button>
+          <Button onClick={handleSave} sx={{ color: "#ff6699" }}>Save</Button>
+        </DialogActions>
+      </Dialog>
     </Container>
   );
 }
