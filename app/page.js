@@ -73,7 +73,7 @@ export default function Home() {
           Welcome to InstaWise AI
         </Typography>
         <Typography variant="h5" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", color: "#f95d9b", fontSize: { xs: "1.25rem", md: "1.5rem" } }}>
-          The easiest way to get advice for any problem you may have!
+          The easiest way to get social advice for any social problem you may have!
         </Typography>
         <Button
           variant="contained"
@@ -111,7 +111,7 @@ export default function Home() {
                 <strong>Easy Text Input</strong>
               </Typography>
               <Typography variant="h6" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "1rem", md: "1.25rem" }, fontWeight: 400 }}>
-                Simply input your problem and let our software do the rest. Getting advice cannot be easier.
+                Simply input your problem and let our software do the rest. Getting social advice cannot be easier.
               </Typography>
             </Box>
           </Grid>
