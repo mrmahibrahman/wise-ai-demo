@@ -140,7 +140,7 @@ export default function Home() {
                 border: '1px solid',
                 borderColor: "#FFB6C1",
                 borderRadius: 2,
-                backgroundColor: "#FFE4E1",
+                backgroundColor: "#FFB6C1",
                 color: "#5D4037",
                 textAlign: 'left',
                 boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)',
@@ -181,29 +181,39 @@ export default function Home() {
                 border: '1px solid',
                 borderColor: "#FFB6C1",
                 borderRadius: 2,
-                backgroundColor: "#FFE4E1",
+                backgroundColor: "#FFB6C1",
                 color: "#5D4037",
                 textAlign: 'left',
                 boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)',
                 height: '100%',
+                width:'100%',
+                m: 'auto',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between'
               }}>
-                <Typography variant="h5" gutterBottom sx={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontSize: { xs: "1.25rem", md: "1.5rem" },
-                  fontWeight: 700
-                }}>
-                  <strong>Smart Advice</strong>
-                </Typography>
-                <Typography variant="h6" gutterBottom sx={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontSize: { xs: "1rem", md: "1.25rem" },
-                  fontWeight: 400
-                }}>
-                  Our AI intelligently breaks down your problem into concise feedback and advice to help you find a solution.
-                </Typography>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <Typography variant="h5" gutterBottom sx={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: { xs: "1.25rem", md: "1.5rem" },
+                      fontWeight: 700,
+                      textAlign: 'center', // Ensure text is centered
+                      width: '100%' // Take up full width of its container
+                    }}>
+                      <strong>Smart Advice</strong>
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography variant="h6" gutterBottom sx={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: { xs: "1rem", md: "1.25rem" },
+                      textAlign: 'center', // Ensure text is centered
+                      width: '100%' // Take up full width of its container
+                    }}>
+                      Our AI intelligently breaks down your problem into concise feedback and advice to help you find a solution.
+                    </Typography>
+                  </Grid>
+                </Grid>
               </Box>
             </div>
             <div>
@@ -212,29 +222,39 @@ export default function Home() {
                 border: '1px solid',
                 borderColor: "#FFB6C1",
                 borderRadius: 2,
-                backgroundColor: "#FFE4E1",
+                backgroundColor: "#FFB6C1",
                 color: "#5D4037",
                 textAlign: 'left',
                 boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)',
                 height: '100%',
+                width:'100%',
+                m: 'auto',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between'
               }}>
-                <Typography variant="h5" gutterBottom sx={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontSize: { xs: "1.25rem", md: "1.5rem" },
-                  fontWeight: 700
-                }}>
-                  <strong>Accessible Anywhere</strong>
-                </Typography>
-                <Typography variant="h6" gutterBottom sx={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontSize: { xs: "1rem", md: "1.25rem" },
-                  fontWeight: 400
-                }}>
-                  Access InstaWise AI from any device, at any time. Solve problems on the go!
-                </Typography>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <Typography variant="h5" gutterBottom sx={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: { xs: "1.25rem", md: "1.5rem" },
+                      fontWeight: 700,
+                      textAlign: 'center', // Ensure text is centered
+                      width: '100%' // Take up full width of its container
+                    }}>
+                      <strong>Accessible Anywhere</strong>
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography variant="h6" gutterBottom sx={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: { xs: "1rem", md: "1.25rem" },
+                      textAlign: 'center', // Ensure text is centered
+                      width: '100%' // Take up full width of its container
+                    }}>
+                      Access InstaWise AI from any device, at any time. Solve problems on the go!
+                    </Typography>
+                  </Grid>
+                </Grid>
               </Box>
             </div>
           </Slider>
