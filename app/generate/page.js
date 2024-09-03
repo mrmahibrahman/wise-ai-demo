@@ -5,6 +5,8 @@ import { Container, Box, Button, TextField, Stack, Dialog, DialogTitle, DialogCo
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
+import Image from 'next/image';
+import aiLogo from '../components/openart-6c1f0dad-3173-4861-a08b-8fc21254b77f.png'; // Path to your AI logo image
 import Navbar from "../components/Navbar";
 
 export default function Home() {
@@ -148,7 +150,7 @@ export default function Home() {
   };
 
   return (
-    <Container maxWidth="xl" sx={{ height: '100vh', bgcolor: "#fff5f7", display: 'flex', flexDirection: 'column' }}>
+    <Container maxWidth="lg" sx={{ height: '100vh', bgcolor: "#fff5f7", display: 'flex', flexDirection: 'column', border: '1px solid #ff99aa', borderRadius: '1px'}}>
       <Navbar />
       <Box
         flex={1}
@@ -179,11 +181,21 @@ export default function Home() {
               sx={{
                 display: 'flex',
                 justifyContent: msg.role === "user" ? "flex-end" : "flex-start",
+                alignItems: 'center', // This ensures vertical centering of the logo with the text
               }}
             >
+              {msg.role === "assistant" && (
+                <Image
+                  src={aiLogo}
+                  alt="AI Logo"
+                  width={30}
+                  height={30}
+                  style={{ marginRight: 8 }}
+                />
+              )}
               <Box
                 sx={{
-                  bgcolor: msg.role === "user" ? "#ffcccb" : "#ff99aa",
+                  bgcolor: msg.role === "user" ? "#BC61F5" : "#ff99aa",
                   p: 2,
                   borderRadius: 2,
                   color: "#fff",
@@ -207,10 +219,12 @@ export default function Home() {
           bottom: 0,
           left: 0,
           right: 0,
-          bgcolor: '#fff5f7',
+          bgcolor: '#ff99aa',
           p: 2,
           borderTop: '1px solid #ff99aa',
           zIndex: 10,
+          maxWidth: 'lg',
+          m: 'auto'
         }}
       >
         <Stack direction="row" spacing={2} alignItems="center">
@@ -237,7 +251,7 @@ export default function Home() {
                   borderColor: "#ff6699",
                 },
                 "& input, & textarea": {
-                  color: "#000",
+                  color: "#696969",
                 },
               },
             }}
@@ -246,10 +260,11 @@ export default function Home() {
           <Button
             variant="contained"
             sx={{
-              bgcolor: "#ff6699",
+              bgcolor: "#ffe6e9",
               "&:hover": {
-                bgcolor: "#e05582",
+                bgcolor: "#ff99aa",
               },
+              color: "#696969"
             }}
             onClick={sendMessage}
             disabled={isLoading}
