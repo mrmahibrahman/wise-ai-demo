@@ -6,11 +6,22 @@ import { AppBar, Box, Button, Container, Grid, Toolbar, Typography } from "@mui/
 import Head from "next/head";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import Navbar from "./components/Navbar";
+import myImage from './components/openart-6c1f0dad-3173-4861-a08b-8fc21254b77f.png';
 
 export default function Home() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
 
   const handleSubmit = async () => {
     const checkoutSession = await fetch('/api/checkout_session', {
@@ -72,6 +83,25 @@ export default function Home() {
         <Typography variant="h2" gutterBottom sx={{ fontFamily: "'Playfair Display', serif", color: "#B22222", fontSize: { xs: "2rem", md: "3rem" } }}>
           Welcome to InstaWise AI
         </Typography>
+        
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            my: 5, // Adds margin on top and bottom of the image
+            width: '100%',
+          }}
+        >
+          <Image
+            src={myImage}
+            alt="InstaWise AI"
+            layout="responsive"
+            width={100} // Set a standard width
+            height={800} // Set a standard height
+            style={{ maxWidth: '10%', height: 'auto' }} // Ensure image scales down properly
+          />
+        </Box>
+        
         <Typography variant="h5" gutterBottom sx={{ fontFamily: "'Playfair Display', serif", color: "#B22222", fontSize: { xs: "1.25rem", md: "1.5rem" } }}>
           The easiest way to get advice for any problem you may have!
         </Typography>
@@ -91,142 +121,144 @@ export default function Home() {
       </Box>
 
       <Box sx={{ my: { xs: 4, md: 6 }, textAlign: 'center', px: { xs: 2, md: 0 } }}>
-        <Typography variant="h4" gutterBottom sx={{ fontFamily: "'Playfair Display', serif", color: "#B22222", fontSize: { xs: "1.75rem", md: "2.5rem" } }}>
+        <Typography variant="h4" gutterBottom sx={{
+          fontFamily: "'Playfair Display', serif",
+          color: "#B22222",
+          fontSize: { xs: "1.75rem", md: "2.5rem" }
+        }}>
           Features
         </Typography>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={4}>
-            <Box
-              sx={{
+        <Box sx={{
+          my: { xs: 4, md: 6 },
+          textAlign: 'center',
+          px: { xs: 2, md: 50 }, // You might want to increase the horizontal padding here
+        }}>
+          <Slider {...sliderSettings}>
+            <div>
+              <Box sx={{
                 p: 3,
                 border: '1px solid',
-                borderColor: "#FFB6C1", // Soft pink lowlight
+                borderColor: "#FFB6C1",
                 borderRadius: 2,
-                backgroundColor: "#FFE4E1", // Light rose
-                color: "#5D4037", 
+                backgroundColor: "#FFB6C1",
+                color: "#5D4037",
                 textAlign: 'left',
-                height: '100%', 
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)',
+                height: '100%',
+                width:'100%',
+                m: 'auto',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between',
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)' 
-              }}
-            >
-              <Typography variant="h5" gutterBottom sx={{ fontFamily: "'Playfair Display', serif", fontSize: { xs: "1.25rem", md: "1.5rem" }, fontWeight: 700 }}>
-                <strong>Easy Text Input</strong>
-              </Typography>
-              <Typography variant="h6" gutterBottom sx={{ fontFamily: "'Playfair Display', serif", fontSize: { xs: "1rem", md: "1.25rem" }, fontWeight: 400 }}>
-                Simply input your problem and let our software do the rest. Getting advice has never been easier.
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Box
-              sx={{
+              }}>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <Typography variant="h5" gutterBottom sx={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: { xs: "1.25rem", md: "1.5rem" },
+                      fontWeight: 700,
+                      textAlign: 'center', // Ensure text is centered
+                      width: '100%' // Take up full width of its container
+                    }}>
+                      <strong>Easy Text Input</strong>
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography variant="h6" gutterBottom sx={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: { xs: "1rem", md: "1.25rem" },
+                      textAlign: 'center', // Ensure text is centered
+                      width: '100%' // Take up full width of its container
+                    }}>
+                      Simply input your problem and let our software do the rest. Getting advice has never been easier.
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </Box>
+            </div>
+            <div>
+              <Box sx={{
                 p: 3,
                 border: '1px solid',
-                borderColor: "#FFB6C1", // Soft pink lowlight
+                borderColor: "#FFB6C1",
                 borderRadius: 2,
-                backgroundColor: "#FFE4E1", // Light rose
-                color: "#5D4037", 
+                backgroundColor: "#FFB6C1",
+                color: "#5D4037",
                 textAlign: 'left',
-                height: '100%', 
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)',
+                height: '100%',
+                width:'100%',
+                m: 'auto',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between',
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)' 
-              }}
-            >
-              <Typography variant="h5" gutterBottom sx={{ fontFamily: "'Playfair Display', serif", fontSize: { xs: "1.25rem", md: "1.5rem" }, fontWeight: 700 }}>
-                <strong>Smart Advice</strong>
-              </Typography>
-              <Typography variant="h6" gutterBottom sx={{ fontFamily: "'Playfair Display', serif", fontSize: { xs: "1rem", md: "1.25rem" }, fontWeight: 400 }}>
-                Our AI intelligently breaks down your problem into concise feedback and advice to help you find a solution.
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Box
-              sx={{
+              }}>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <Typography variant="h5" gutterBottom sx={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: { xs: "1.25rem", md: "1.5rem" },
+                      fontWeight: 700,
+                      textAlign: 'center', // Ensure text is centered
+                      width: '100%' // Take up full width of its container
+                    }}>
+                      <strong>Smart Advice</strong>
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography variant="h6" gutterBottom sx={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: { xs: "1rem", md: "1.25rem" },
+                      textAlign: 'center', // Ensure text is centered
+                      width: '100%' // Take up full width of its container
+                    }}>
+                      Our AI intelligently breaks down your problem into concise feedback and advice to help you find a solution.
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </Box>
+            </div>
+            <div>
+              <Box sx={{
                 p: 3,
                 border: '1px solid',
-                borderColor: '#FFB6C1', // Soft pink lowlight
+                borderColor: "#FFB6C1",
                 borderRadius: 2,
-                backgroundColor: "#FFE4E1", // Light rose
-                color: "#5D4037", 
+                backgroundColor: "#FFB6C1",
+                color: "#5D4037",
                 textAlign: 'left',
-                height: '100%', 
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)',
+                height: '100%',
+                width:'100%',
+                m: 'auto',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between',
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)' 
-              }}
-            >
-              <Typography variant="h5" gutterBottom sx={{ fontFamily: "'Playfair Display', serif", fontSize: { xs: "1.25rem", md: "1.5rem" }, fontWeight: 700 }}>
-                <strong>Accessible Anywhere</strong>
-              </Typography>
-              <Typography variant="h6" gutterBottom sx={{ fontFamily: "'Playfair Display', serif", fontSize: { xs: "1rem", md: "1.25rem" }, fontWeight: 400 }}>
-                Access InstaWise AI from any device, at any time. Solve problems on the go!
-              </Typography>
-            </Box>
-          </Grid>
-        </Grid>
-      </Box>
-
-      <Box sx={{ my: { xs: 4, md: 6 }, textAlign: 'center', px: { xs: 2, md: 0 } }}>
-        <Typography variant="h4" gutterBottom sx={{ fontFamily: "'Playfair Display', serif", color: "#B22222", fontSize: { xs: "1.75rem", md: "2.5rem" } }}>
-          Pricing
-        </Typography>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
-            <Box
-              sx={{
-                p: 3,
-                border: '1px solid',
-                borderColor: '#FFB6C1', // Soft pink lowlight
-                borderRadius: 2,
-                backgroundColor: "#FFE4E1", // Light rose
-                color: "#5D4037", 
-                textAlign: 'left',
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)' 
-              }}
-            >
-              <Typography variant="h5" gutterBottom sx={{ fontFamily: "'Playfair Display', serif", fontSize: { xs: "1.25rem", md: "1.5rem" }, fontWeight: 700 }}>
-                Basic
-              </Typography>
-              <Typography variant="h6" gutterBottom sx={{ p: 2, fontFamily: "'Playfair Display', serif", fontSize: { xs: "1rem", md: "1.25rem" }, fontWeight: 400 }}>
-                $5/month
-              </Typography>
-              <Typography variant="body1" sx={{ p: 2, fontFamily: "'Playfair Display', serif", fontSize: { xs: "0.875rem", md: "1rem" } }}>
-                Basic features include unlimited advice and access to our AI engine.
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Box
-              sx={{
-                p: 3,
-                border: '1px solid',
-                borderColor: '#FFB6C1', // Soft pink lowlight
-                borderRadius: 2,
-                backgroundColor: "#FFE4E1", // Light rose
-                color: "#5D4037", 
-                textAlign: 'left',
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)' 
-              }}
-            >
-              <Typography variant="h5" gutterBottom sx={{ fontFamily: "'Playfair Display', serif", fontSize: { xs: "1.25rem", md: "1.5rem" }, fontWeight: 700 }}>
-                Premium
-              </Typography>
-              <Typography variant="h6" gutterBottom sx={{ p: 2, fontFamily: "'Playfair Display', serif", fontSize: { xs: "1rem", md: "1.25rem" }, fontWeight: 400 }}>
-                $15/month
-              </Typography>
-              <Typography variant="body1" sx={{ p: 2, fontFamily: "'Playfair Display', serif", fontSize: { xs: "0.875rem", md: "1rem" } }}>
-                Includes all basic features, plus priority support and additional AI insights.
-              </Typography>
-            </Box>
-          </Grid>
-        </Grid>
+              }}>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <Typography variant="h5" gutterBottom sx={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: { xs: "1.25rem", md: "1.5rem" },
+                      fontWeight: 700,
+                      textAlign: 'center', // Ensure text is centered
+                      width: '100%' // Take up full width of its container
+                    }}>
+                      <strong>Accessible Anywhere</strong>
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography variant="h6" gutterBottom sx={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: { xs: "1rem", md: "1.25rem" },
+                      textAlign: 'center', // Ensure text is centered
+                      width: '100%' // Take up full width of its container
+                    }}>
+                      Access InstaWise AI from any device, at any time. Solve problems on the go!
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </Box>
+            </div>
+          </Slider>
+        </Box>
       </Box>
     </Container>
   );
