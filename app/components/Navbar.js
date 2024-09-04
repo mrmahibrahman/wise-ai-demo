@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, Button, Menu, MenuItem } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, Menu, MenuItem, Box } from '@mui/material';
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import Image from 'next/image';
+import logo from './logo.png'; // Adjust path accordingly
 
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -24,78 +26,106 @@ export default function Navbar() {
         height: '64px',
       }}
     >
-      <Toolbar>
-        <Typography variant="h6" style={{ flexGrow: 1 }}>
-          InstaWise AI
-        </Typography>
+      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        {/* Container for logo and text */}
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box sx={{ mr: 2 }}> {/* Adds margin to the right of the image */}
+            <Image
+              src={logo}
+              alt="InstaWise AI Logo"
+              width={40} // Adjust size as needed
+              height={40} // Adjust size as needed
+              style={{ borderRadius: '50%' }} // Optional: makes the image circular
+            />
+          </Box>
+          <Typography variant="h6">
+            InstaWise AI
+          </Typography>
+        </Box>
 
-        <Button color="inherit" onClick={handleMenuClick}>
-          Menu
-        </Button>
-
-        <Menu
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleMenuClose}
-          sx={{
-            '& .MuiPaper-root': {
-              backgroundColor: '#1e1e1e', // Dark Gray for menu background
-              color: '#f95d9b', // Pink Highlight for menu text
-            }
-          }}
-        >
-          <MenuItem
-            onClick={handleMenuClose}
-            component="a"
-            href="/"
-            sx={{
-              color: '#f95d9b',
-              '&:hover': {
-                backgroundColor: '#39a0ca', // Bluewater Lowlight on hover
-              },
-            }}
-          >
-            Home
-          </MenuItem>
-          <MenuItem
-            onClick={handleMenuClose}
-            component="a"
-            href="/generate"
-            sx={{
-              color: '#f95d9b',
-              '&:hover': {
-                backgroundColor: '#39a0ca',
-              },
-            }}
-          >
-            Advice Bot
-          </MenuItem>
-          <MenuItem
-            onClick={handleMenuClose}
-            component="a"
-            href="/flashcards"
-            sx={{
-              color: '#f95d9b',
-              '&:hover': {
-                backgroundColor: '#39a0ca',
-              },
-            }}
-          >
-            View Chat History
-          </MenuItem>
-        </Menu>
-
-        <SignedOut>
-          <Button color="inherit" href="/sign-in">
-            Login
+        {/* Menu and authentication buttons */}
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Button color="inherit" onClick={handleMenuClick}>
+            Menu
           </Button>
-          <Button color="inherit" href="/sign-up">
-            Sign Up
-          </Button>
-        </SignedOut>
-        <SignedIn>
-          <UserButton />
-        </SignedIn>
+
+          <Menu
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={handleMenuClose}
+            sx={{
+              '& .MuiPaper-root': {
+                backgroundColor: '#1e1e1e', // Dark Gray for menu background
+                color: '#f95d9b', // Pink Highlight for menu text
+              }
+            }}
+          >
+            <MenuItem
+              onClick={handleMenuClose}
+              component="a"
+              href="/"
+              sx={{
+                color: '#f95d9b',
+                '&:hover': {
+                  backgroundColor: '#39a0ca', // Bluewater Lowlight on hover
+                },
+              }}
+            >
+              Home
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component="a"
+              href="/generate"
+              sx={{
+                color: '#f95d9b',
+                '&:hover': {
+                  backgroundColor: '#39a0ca',
+                },
+              }}
+            >
+              Advice Bot
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component="a"
+              href="/flashcards"
+              sx={{
+                color: '#f95d9b',
+                '&:hover': {
+                  backgroundColor: '#39a0ca',
+                },
+              }}
+            >
+              View Chat History
+            </MenuItem>
+            <MenuItem
+              onClick={handleMenuClose}
+              component="a"
+              href="/payment"
+              sx={{
+                color: '#f95d9b',
+                '&:hover': {
+                  backgroundColor: '#39a0ca',
+                },
+              }}
+            >
+              Upgrade Account
+            </MenuItem>
+          </Menu>
+
+          <SignedOut>
+            <Button color="inherit" href="/sign-in" sx={{ ml: 2 }}>
+              Login
+            </Button>
+            <Button color="inherit" href="/sign-up" sx={{ ml: 2 }}>
+              Sign Up
+            </Button>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </Box>
       </Toolbar>
     </AppBar>
   );

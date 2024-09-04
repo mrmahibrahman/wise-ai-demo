@@ -6,11 +6,22 @@ import { AppBar, Box, Button, Container, Grid, Toolbar, Typography } from "@mui/
 import Head from "next/head";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import Navbar from "./components/Navbar";
+import logo from './components/logo.png';
 
 export default function Home() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
 
   const handleSubmit = async () => {
     const checkoutSession = await fetch('/api/checkout_session', {
@@ -46,18 +57,18 @@ export default function Home() {
     <Container 
       maxWidth="100%" 
       sx={{ 
-        backgroundColor:  "#2c2c2c",//"#161748", // Purple Baseline
+        background: "linear-gradient(135deg, #FFC0CB 0%, #FFF5F7 50%, #FFC0CB 100%)", // Softer gradient from pink to white to pink
         minHeight: "100vh", 
-        color: "#f95d9b", // Pink Highlight
+        color: "#5D4037", // Darker brown color for text
         padding: "0", 
         display: "flex", 
         flexDirection: "column",
-        mt: 8 // Add margin top to push content below the Navbar
+        mt: 8, // Add margin top to push content below the Navbar
       }}
     >
       <Head>
-        <title>Flashcards</title>
-        <meta name="description" content="Create flashcards from your text" />
+        <title>InstaWise AI</title>
+        <meta name="description" content="Your AI-powered advice bot" />
       </Head>
 
       <Navbar />
@@ -69,16 +80,40 @@ export default function Home() {
           px: { xs: 2, md: 0 },
         }}
       >
-        <Typography variant="h2" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", color: "#f95d9b", fontSize: { xs: "2rem", md: "3rem" } }}>
+        <Typography variant="h2" gutterBottom sx={{ fontFamily: "'Playfair Display', serif", color: "#B22222", fontSize: { xs: "2rem", md: "3rem" } }}>
           Welcome to InstaWise AI
         </Typography>
-        <Typography variant="h5" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", color: "#f95d9b", fontSize: { xs: "1.25rem", md: "1.5rem" } }}>
-          The easiest way to get social advice for any social problem you may have!
+        
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            my: 5, // Adds margin on top and bottom of the image
+            width: '100%',
+          }}
+        >
+          <Image
+            src={logo}
+            alt="InstaWise AI"
+            layout="responsive"
+            width={200} // Set a standard width
+            height={800} // Set a standard height
+            style={{ maxWidth: '10%', height: 'auto' }} // Ensure image scales down properly
+          />
+        </Box>
+        
+        <Typography variant="h5" gutterBottom sx={{ fontFamily: "'Playfair Display', serif", color: "#B22222", fontSize: { xs: "1.25rem", md: "1.5rem" } }}>
+          The easiest way to get advice for any problem you may have!
         </Typography>
         <Button
           variant="contained"
-          color="primary"
-          sx={{ mt: 2, backgroundColor: "#f95d9b", color: "#161748", '&:hover': { backgroundColor: "#e34a6f" } }} // Slightly darker pink for hover
+          sx={{ 
+            mt: 2, 
+            backgroundColor: "#FFB6C1", // Soft pink color for the button
+            color: "#5D4037", 
+            fontFamily: "'Playfair Display', serif",
+            '&:hover': { backgroundColor: "#B22222" } // Coral for hover
+          }} 
           onClick={handleGetStarted}
         >
           Get Started!
@@ -86,156 +121,144 @@ export default function Home() {
       </Box>
 
       <Box sx={{ my: { xs: 4, md: 6 }, textAlign: 'center', px: { xs: 2, md: 0 } }}>
-        <Typography variant="h4" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", color: "#f95d9b", fontSize: { xs: "1.75rem", md: "2.5rem" } }}>
+        <Typography variant="h4" gutterBottom sx={{
+          fontFamily: "'Playfair Display', serif",
+          color: "#B22222",
+          fontSize: { xs: "1.75rem", md: "2.5rem" }
+        }}>
           Features
         </Typography>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={4}>
-            <Box
-              sx={{
+        <Box sx={{
+          my: { xs: 4, md: 6 },
+          textAlign: 'center',
+          px: { xs: 2, md: 50 }, // You might want to increase the horizontal padding here
+        }}>
+          <Slider {...sliderSettings}>
+            <div>
+              <Box sx={{
                 p: 3,
                 border: '1px solid',
-                borderColor: "#f95d9b", // Bluewater Lowlight
+                borderColor: "#FFB6C1",
                 borderRadius: 2,
-                backgroundColor: "#1e1e1e", // Dark Gray
-                color: "#f95d9b", // Pink Highlight
+                backgroundColor: "#FFB6C1",
+                color: "#5D4037",
                 textAlign: 'left',
-                height: '100%', // Ensures all boxes are the same height
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)',
+                height: '100%',
+                width:'100%',
+                m: 'auto',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between', // Ensures content is spaced evenly
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)' // Add shadow
-              }}
-            >
-              <Typography variant="h5" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "1.25rem", md: "1.5rem" }, fontWeight: 700 }}>
-                <strong>Easy Text Input</strong>
-              </Typography>
-              <Typography variant="h6" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "1rem", md: "1.25rem" }, fontWeight: 400 }}>
-                Simply input your problem and let our software do the rest. Getting social advice cannot be easier.
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Box
-              sx={{
+              }}>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <Typography variant="h5" gutterBottom sx={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: { xs: "1.25rem", md: "1.5rem" },
+                      fontWeight: 700,
+                      textAlign: 'center', // Ensure text is centered
+                      width: '100%' // Take up full width of its container
+                    }}>
+                      <strong>Easy Text Input</strong>
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography variant="h6" gutterBottom sx={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: { xs: "1rem", md: "1.25rem" },
+                      textAlign: 'center', // Ensure text is centered
+                      width: '100%' // Take up full width of its container
+                    }}>
+                      Simply input your problem and let our software do the rest. Getting advice has never been easier.
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </Box>
+            </div>
+            <div>
+              <Box sx={{
                 p: 3,
                 border: '1px solid',
-                borderColor: "#f95d9b", // Bluewater Lowlight
+                borderColor: "#FFB6C1",
                 borderRadius: 2,
-                backgroundColor: "#1e1e1e", // Dark Gray
-                color: "#f95d9b", // Pink Highlight
+                backgroundColor: "#FFB6C1",
+                color: "#5D4037",
                 textAlign: 'left',
-                height: '100%', // Ensures all boxes are the same height
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)',
+                height: '100%',
+                width:'100%',
+                m: 'auto',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between', // Ensures content is spaced evenly
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)' // Add shadow
-              }}
-            >
-              <Typography variant="h5" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "1.25rem", md: "1.5rem" }, fontWeight: 700 }}>
-                <strong>Smart Advice</strong>
-              </Typography>
-              <Typography variant="h6" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "1rem", md: "1.25rem" }, fontWeight: 400 }}>
-                Our AI intelligently breaks down your problem into concise feedback and advice to solve your problem.
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Box
-              sx={{
+              }}>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <Typography variant="h5" gutterBottom sx={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: { xs: "1.25rem", md: "1.5rem" },
+                      fontWeight: 700,
+                      textAlign: 'center', // Ensure text is centered
+                      width: '100%' // Take up full width of its container
+                    }}>
+                      <strong>Smart Advice</strong>
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography variant="h6" gutterBottom sx={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: { xs: "1rem", md: "1.25rem" },
+                      textAlign: 'center', // Ensure text is centered
+                      width: '100%' // Take up full width of its container
+                    }}>
+                      Our AI intelligently breaks down your problem into concise feedback and advice to help you find a solution.
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </Box>
+            </div>
+            <div>
+              <Box sx={{
                 p: 3,
                 border: '1px solid',
-                borderColor: '#f95d9b', // Bluewater Lowlight
+                borderColor: "#FFB6C1",
                 borderRadius: 2,
-                backgroundColor: "#1e1e1e", // Dark Gray
-                color: "#f95d9b", // Pink Highlight
+                backgroundColor: "#FFB6C1",
+                color: "#5D4037",
                 textAlign: 'left',
-                height: '100%', // Ensures all boxes are the same height
+                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)',
+                height: '100%',
+                width:'100%',
+                m: 'auto',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between', // Ensures content is spaced evenly
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)' // Add shadow
-              }}
-            >
-              <Typography variant="h5" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "1.25rem", md: "1.5rem" }, fontWeight: 700 }}>
-                <strong>Accessible Anywhere</strong>
-              </Typography>
-              <Typography variant="h6" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "1rem", md: "1.25rem" }, fontWeight: 400 }}>
-                Access Wise AI from any device, at any time. Solve problems on the go!
-              </Typography>
-            </Box>
-          </Grid>
-        </Grid>
-      </Box>
-
-      <Box sx={{ my: { xs: 4, md: 6 }, textAlign: 'center', px: { xs: 2, md: 0 } }}>
-        <Typography variant="h4" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", color: "#f95d9b", fontSize: { xs: "1.75rem", md: "2.5rem" } }}>
-          Pricing
-        </Typography>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
-            <Box
-              sx={{
-                p: 3,
-                border: '1px solid',
-                borderColor: '#f95d9b', // Bluewater Lowlight
-                borderRadius: 2,
-                backgroundColor: "#1e1e1e", // Dark Gray
-                color: "#f95d9b", // Pink Highlight
-                textAlign: 'left',
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)' // Add shadow
-              }}
-            >
-              <Typography variant="h5" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "1.25rem", md: "1.5rem" }, fontWeight: 700 }}>
-                Basic
-              </Typography>
-              <Typography variant="h6" gutterBottom sx={{ p: 2, fontFamily: "Roboto, sans-serif", fontSize: { xs: "1rem", md: "1.25rem" }, fontWeight: 400 }}>
-                Free
-              </Typography>
-              <Typography sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "0.875rem", md: "1rem" }, fontWeight: 400 }}>
-                Advice token limits each day
-              </Typography>
-              <Button
-                variant="contained"
-                color="primary"
-                sx={{ mt: 2, backgroundColor: "#f95d9b", color: "#161748", '&:hover': { backgroundColor: "#e34a6f" } }} // Slightly darker pink for hover
-              >
-                Choose Basic
-              </Button>
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Box
-              sx={{
-                p: 3,
-                border: '1px solid',
-                borderColor: "#f95d9b", // Bluewater Lowlight
-                borderRadius: 2,
-                backgroundColor: "#1e1e1e", // Dark Gray
-                color: "#f95d9b", // Pink Highlight
-                textAlign: 'left',
-                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.5)' // Add shadow
-              }}
-            >
-              <Typography variant="h5" gutterBottom sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "1.25rem", md: "1.5rem" }, fontWeight: 700 }}>
-                Premium
-              </Typography>
-              <Typography variant="h6" gutterBottom sx={{ p: 2, fontFamily: "Roboto, sans-serif", fontSize: { xs: "1rem", md: "1.25rem" }, fontWeight: 400 }}>
-                $ 5.00
-              </Typography>
-              <Typography sx={{ fontFamily: "Roboto, sans-serif", fontSize: { xs: "0.875rem", md: "1rem" }, fontWeight: 400 }}>
-                Unlimited advice tokens
-              </Typography>
-              <Button
-                variant="contained"
-                color="primary"
-                sx={{ mt: 2, backgroundColor: "#f95d9b", color: "#161748", '&:hover': { backgroundColor: "#e34a6f" } }} // Slightly darker pink for hover
-              >
-                Choose Premium
-              </Button>
-            </Box>
-          </Grid>
-        </Grid>
+              }}>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <Typography variant="h5" gutterBottom sx={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: { xs: "1.25rem", md: "1.5rem" },
+                      fontWeight: 700,
+                      textAlign: 'center', // Ensure text is centered
+                      width: '100%' // Take up full width of its container
+                    }}>
+                      <strong>Accessible Anywhere</strong>
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography variant="h6" gutterBottom sx={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: { xs: "1rem", md: "1.25rem" },
+                      textAlign: 'center', // Ensure text is centered
+                      width: '100%' // Take up full width of its container
+                    }}>
+                      Access InstaWise AI from any device, at any time. Solve problems on the go!
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </Box>
+            </div>
+          </Slider>
+        </Box>
       </Box>
     </Container>
   );
