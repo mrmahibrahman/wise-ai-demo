@@ -6,7 +6,7 @@ import { doc, setDoc, getDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import Image from 'next/image';
-import logo from '../components/logo.png'; 
+import newlogo from '../components/newlogo.png'; 
 import Navbar from "../components/Navbar";
 
 export default function Home() {
@@ -186,7 +186,7 @@ export default function Home() {
             >
               {msg.role === "assistant" && (
                 <Image
-                  src={logo}
+                  src={newlogo}
                   alt="AI Logo"
                   width={30}
                   height={30}

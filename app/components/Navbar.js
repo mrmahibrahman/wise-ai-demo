@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Button, Menu, MenuItem, Box } from '@mui/material';
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import Image from 'next/image';
-import logo from './logo.png'; // Adjust path accordingly
+import newlogo from './newlogo.png'; // Adjust path accordingly
 
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -31,7 +31,7 @@ export default function Navbar() {
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ mr: 2 }}> {/* Adds margin to the right of the image */}
             <Image
-              src={logo}
+              src={newlogo}
               alt="InstaWise AI Logo"
               width={40} // Adjust size as needed
               height={40} // Adjust size as needed

@@ -10,7 +10,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Navbar from "./components/Navbar";
-import logo from './components/logo.png';
+import newlogo from './components/newlogo.png';
 
 export default function Home() {
   const router = useRouter();
@@ -93,7 +93,7 @@ export default function Home() {
           }}
         >
           <Image
-            src={logo}
+            src={newlogo}
             alt="InstaWise AI"
             layout="responsive"
             width={200} // Set a standard width
